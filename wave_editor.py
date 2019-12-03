@@ -69,7 +69,11 @@ def dimming(music_list):
     return newlst
 def menu():
     file_name = get_file()
-    music_list=wave_helper.load_wave(file_name)
+    val1,val2 = wave_helper.load_wave(file_name)
+    if val1 == -1:
+        print("invalid file")
+        return None
+    music_list=val2
     music_menu(music_list)
 def music_menu(music_list):
     valid=True
@@ -98,11 +102,27 @@ def music_menu(music_list):
             print("the audio has been dimmed")
         elif x==7:
             file_name=input("insert a file name for the new file")
-            wave_helper.save_wave(2000, music_list, file_name)
+            success = wave_helper.save_wave(2000, music_list, file_name)
+            if success == (-1):
+                print("did'nt save")
             break
         else:
             print("invalid input")
         print(music_list)
+def main():
+    keepon = True
+    while keepon:
+        x = int(input(
+            "choose one of the options for editing \n 1. change an audio file \n"
+            " 2.compose an audio file \n 3.exit"))
+        if x == 1:
+            menu()
+        elif x == 2:
+            pass
+        elif x == 3:
+            break
+        else:
+            print("invalid input")
 
 
 print(reverseaudio([[1,2],[3,4],[5,6],[7,8]]))
