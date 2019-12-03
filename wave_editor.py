@@ -55,7 +55,7 @@ def dimming(music_list):
         if i>0 and i+1<len(music_list):
             x = int((music_list[i-1][0]+music_list[i][0]+music_list[i+1][0])/3)
             y = int((music_list[i-1][1]+music_list[i][1]+music_list[i+1][1])/3)
-        elif i==0:
+        elif i == 0 and len(music_list) > 1:
             x = int((music_list[i][0] +
                      music_list[i + 1][0]) / 2)
             y = int((music_list[i][1] +
