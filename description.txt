@@ -1,0 +1,13 @@
+We chose to split the code to two main functions, one for composing ("compose") and one for editing("edit_menu").
+We wrote the first menu in the main, then we call the function that the user chooses ("compose" or "change_file"). 
+We split the editing menu from the changing existing file option ("change_file") to two functions because we need to call the editing function from the compose function, 
+and when we do that we don't need to load an existing file for editing so we skip this step directly to the editing menu("edit_menu") with the file that we just composed.
+In the editing menu (the second function) we have editing functions calls meaning we created 6 small functions to each option. 
+The 7th option is just to save and exit so it's in the same function. 
+In the composing function we created a few functions to simplify the process. 
+First of all, we created the function "get_file" to check existence of a composing file.
+Secondly, we split the composing (reading a file into list of lists- a music list we can edit) to 3 steps. 
+At first we created a function ("file_to_pairs") that reads the file and creates a list of pairs that every pair is a musical note and a number (symbols a 1/16 of the sample rate). 
+Then we created the second function ("lst_pairs_to_music") that makes a list of lists that is fit to be edited, and it does it with calling for every pair to the third function
+("pair_to_sound") that converts every pair to list of numbers we can edit.
+ 
